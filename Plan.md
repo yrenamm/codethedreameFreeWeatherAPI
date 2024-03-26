@@ -12,6 +12,7 @@
     - [Functionality](#functionality)
   - [Task 2](#task-2)
     - [Refreshing API Knowledge](#refreshing-api-knowledge)
+    - [Writing Tests](#writing-tests)
 
 ## Plan
 
