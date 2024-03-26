@@ -50,3 +50,11 @@
 * Revisit Git and GitHub fundamentals to ensure efficient code management and collaboration.
 * Brush up on JavaScript fetch API usage to retrieve data efficiently and handle responses correctly.
 * Go through the Open-Meteo API documentation thoroughly to understand the available endpoints and data structure.
+
+#### Writing Tests
+
+* Test Navigation
+* Test Internationalization
+* Test Footer Links
+* Test Functionality
+* Test Minor Details
