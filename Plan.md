@@ -33,8 +33,8 @@
 
 #### Content
 
-* **Data Models**: Display temperature and weather conditions as the primary models.
-* **Navigation**: Implement a menu to navigate between current weather conditions and forecasts.
+* **Data Models**: Display current and historic temperature and weather conditions as the primary models.
+* **Navigation**: Implement a menu to navigate between current weather conditions and historic data.
 
 #### Functionality
 
