@@ -23,7 +23,7 @@ This project utilizes HTML, CSS, and JavaScript to create a user-friendly web ap
 ## Usage
 1. Visit [https://yrenamm.github.io/](https://yrenamm.github.io/) to access the web application.
 2. Navigate through the application using the provided links and buttons:
-   - Press "Home" or "Login" to return to the welcome page.
+   - Press "Home" or Cloud icon to return to the welcome page.
    - Use the language selection buttons to choose between English, Russian, and Hebrew.
    - Click on "Current Weather" to select a main USA city and view current weather details.
    - Click on "Historical Data" to choose a city and view historical weather data for the same day in 2021.
