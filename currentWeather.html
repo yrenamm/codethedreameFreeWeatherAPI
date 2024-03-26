@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather Forecast</title>
+    <link rel="icon" href="resources/CloudSun.ico" type="image/x-icon">
+    <!-- Add Google Font link -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add Bootstrap link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Add externals CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+<body>
+
+    <nav class="weather-api-navbar">
+
+        <a class="weather-api-navbar-brand" href="index.html">
+            <img src="resources/CloudSun.png" alt="Cloud & Sun" style="width: 5rem; height: 3rem;">
+        </a>
+
+        <div class="weather-api-navbar-collapse">
+            <ul class="weather-api-navbar-nav">
+                <li class="weather-api-nav-item"><a class="weather-api-nav-link" href="index.html">Home</a></li>
+                <li class="weather-api-nav-item"><a class="weather-api-nav-link" href="currentWeather.html">Current Weather</a></li>
+                <li class="weather-api-nav-item"><a class="weather-api-nav-link" href="historicalWeather.html">Historical Data</a></li>
+                <li class="weather-api-nav-item"><a class="weather-api-nav-link" href="https://open-meteo.com/en/docs/" target="_blank">API Documentation</a></li>
+            </ul>
+        </div>
+
+    </nav>
+
+
+    <!-- Main content with bootstrap4 usage-->
+    <main role="main" class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">Today's Weather</h1>
+                <p class="lead text-center">Get the latest weather updates for your area.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form id="cityForm">
+                    <label for="citySelect">Select a city:</label>
+                    <select id="citySelect">
+                        <option value="newYork">New York</option>
+                        <option value="losAngeles">Los Angeles</option>
+                        <option value="chicago">Chicago</option>
+                        <option value="houston">Houston</option>
+                        <option value="phoenix">Phoenix</option>
+                        <option value="philadelphia">Philadelphia</option>
+                        <option value="sanAntonio">San Antonio</option>
+                        <option value="sanDiego">San Diego</option>
+                        <option value="dallas">Dallas</option>
+                        <option value="sanJose">San Jose</option>
+                    </select>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div id="weatherResult"></div> 
+
+    <!-- Animated gallery -->
+    <div class="gallery">
+        <img class="gallery-image" src="resources/Pic1.png">
+        <img class="gallery-image" src="resources/Pic2.png">
+        <img class="gallery-image" src="resources/Pic3.png">
+        <img class="gallery-image" src="resources/Pic4.png">
+        <img class="gallery-image" src="resources/Pic5.png">
+        <img class="gallery-image" src="resources/Pic6.png">
+        <img class="gallery-image" src="resources/Pic7.png">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Open-Meteo Website</p>
+        <ul>
+            <li><a href="#" id="privacyPolicyLink">Privacy Policy</a></li>
+            <li><a href="#" onclick="alert('Contact me by yrenamm@gmail.com')">Contact me</a></li>
+        </ul>
+    </footer>
+    
+    <!-- Privacy Policy iFrame -->
+    <iframe id="policy-frame"></iframe>
+
+    <!-- Close button -->
+    <button id="closeButton" style="display: none;">Close Policy</button>
+
+    <!-- Scripts -->
+    <script>
+
+        var frame = document.getElementById("policy-frame");
+        var link = document.getElementById("privacyPolicyLink");
+        var button = document.getElementById("closeButton");
+
+        link.onclick = function() {
+            frame.style.display = "block";
+            frame.contentWindow.document.write("<p>This project was created as an assignment for Code the Dream and is not intended for commercial use.</p>");
+            button.style.display = "block"
+        }
+
+        button.onclick = function() {
+            frame.style.display = "none";
+            button.style.display = "none";
+        }
+
+        // API usage and Data population
+        function fetchCurrentWeather(event) {
+            event.preventDefault(); // Prevent the form from submitting normally: not to perform form's default form submission behavior
+
+            const citySelect = document.getElementById('citySelect');
+            const selectedCity = citySelect.options[citySelect.selectedIndex].value;
+
+            let latitude, longitude;
+
+            // Define latitude & longitude for the City choosen
+            switch(selectedCity) {
+                
+                case 'newYork':
+                    latitude = '40.7128';
+                    longitude = '-74.0060';
+                    break;
+                case 'losAngeles':
+                    latitude = '34.0522';
+                    longitude = '-118.2437';
+                    break;
+                case 'chicago':
+                    latitude = '41.8781';
+                    longitude = '-87.6298';
+                    break;
+                case 'houston':
+                    latitude = '29.7604';
+                    longitude = '-95.3698';
+                    break;
+                case 'phoenix':
+                    latitude = '33.4484';
+                    longitude = '-112.0740';
+                    break;
+                case 'philadelphia':
+                    latitude = '39.9526';
+                    longitude = '-75.1652';
+                    break;
+                case 'sanAntonio':
+                    latitude = '29.4241';
+                    longitude = '-98.4936';
+                    break;
+                case 'sanDiego':
+                    latitude = '32.7157';
+                    longitude = '-117.1611';
+                    break;
+                case 'dallas':
+                    latitude = '32.7767';
+                    longitude = '-96.7970';
+                    break;
+                case 'sanJose':
+                    latitude = '37.3382';
+                    longitude = '-121.8863';
+                    break;
+
+            }
+
+            // Open-Meteo API usage
+            fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`)
+                // Read the response body and return it as a JavaScript object. Also returns a Promise for chain usage
+                .then(response => response.json()) 
+                // Usage of data returned from the API
+                .then(data => {
+                    console.log(data);
+                    const weather = data.current_weather;
+                    const time = new Date(weather.time).toLocaleTimeString();
+                    const cityName = citySelect.options[citySelect.selectedIndex].text;
+                    const resultDiv = document.getElementById('weatherResult');
+                    // Populate fetched data to display
+                    resultDiv.innerHTML =  `As of ${time} in ${cityName}:<br>` +
+                                        'Temperature: ' + weather.temperature + '°C<br>' +
+                                        'Wind Speed: ' + weather.windspeed + ' km/h<br>' +
+                                        'Time: ' + new Date(weather.time).toLocaleTimeString();
+                })
+                .catch(error => console.error('Error fetching weather:', error)); // Error Handling
+        }
+
+        // Add the event listener
+        document.getElementById('cityForm').addEventListener('submit', fetchCurrentWeather);
+
+    </script>
+
+</body>
+
+</html>

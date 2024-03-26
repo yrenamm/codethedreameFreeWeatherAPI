@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather Forecast</title>
+    <link rel="icon" href="resources/CloudSun.ico" type="image/x-icon">
+    <!-- Add Google Font link -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add Bootstrap link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Add externals CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+<body>
+
+    <nav class="weather-api-navbar">
+
+        <a class="weather-api-navbar-brand" href="index.html">
+            <img src="resources/CloudSun.png" alt="Cloud & Sun" style="width: 5rem; height: 3rem;">
+        </a>
+
+        <div class="weather-api-navbar-collapse">
+            <ul class="weather-api-navbar-nav">
+                <li class="weather-api-nav-item"><a class="weather-api-nav-link" href="index.html">Home</a></li>
+                <li class="weather-api-nav-item"><a class="weather-api-nav-link" href="currentWeather.html">Current Weather</a></li>
+                <li class="weather-api-nav-item"><a class="weather-api-nav-link" href="historicalWeather.html">Historical Data</a></li>
+                <li class="weather-api-nav-item"><a class="weather-api-nav-link" href="https://open-meteo.com/en/docs/" target="_blank">API Documentation</a></li>
+            </ul>
+        </div>
+
+        <div class="language-panel">
+            <button class="language-button" onclick="showEnglishArticle()">English</button>
+            <button class="language-button" onclick="showRussianArticle()">Русский</button>
+            <button class="language-button" onclick="showHebrewArticle()">עברית</button>
+        </div>
+
+    </nav>
+
+
+    <!-- Main contect. Articles by langs -->
+    <!-- English -->
+    <article id="english-article" style="display: block;">
+        <h1>Welcome to Open-Meteo: Your Comprehensive Weather Data Portal</h1>
+        <p>In the modern world, where data-driven decisions are the norm, access to accurate and timely weather data is
+            crucial. It plays a pivotal role in various industries, including agriculture, energy, tourism, and event
+            planning. Open-Meteo, a robust weather API, is designed to provide real-time weather data from around the
+            globe,
+            serving as your gateway to weather data.</p>
+
+        <h2>Introducing Open-Meteo</h2>
+        <p>Open-Meteo is a dynamic weather API that opens up a wealth of weather data. It offers real-time weather
+            forecasts, historical weather data, and even climate projections. Designed with simplicity and ease of use
+            in
+            mind, it's an excellent choice for developers and businesses of all sizes.</p>
+
+        <h2>Why Choose Open-Meteo?</h2>
+        <p>Open-Meteo stands out for its comprehensive coverage and accuracy. Here's what makes it special:</p>
+        <ul>
+            <li><strong>Global Coverage</strong>: Open-Meteo provides weather data for locations worldwide, from major
+                cities to remote rural areas.</li>
+            <li><strong>Real-Time Forecasts</strong>: Get up-to-the-minute weather forecasts, including temperature,
+                humidity, wind speed, precipitation, and more.</li>
+            <li><strong>Historical Data</strong>: Access historical weather data to analyze trends and patterns over
+                time.
+            </li>
+            <li><strong>Climate Projections</strong>: For long-term planning, Open-Meteo offers climate projections
+                based on
+                various climate models.</li>
+        </ul>
+
+        <h2>Getting Started with Open-Meteo</h2>
+        <p>Starting with Open-Meteo is straightforward. The API uses RESTful principles and returns data in JSON format,
+            making it easy to integrate into your applications. Whether you're developing a weather app, planning an
+            event,
+            or managing farm operations, Open-Meteo provides the weather data you need to make informed decisions.</p>
+
+        <h2>Conclusion</h2>
+        <p>In a world where weather conditions significantly impact our daily lives and businesses, access to reliable
+            weather data is more important than ever. Open-Meteo, with its comprehensive coverage and user-friendly API,
+            is
+            an excellent tool for anyone needing accurate and timely weather information. Harness the power of weather
+            data
+            with Open-Meteo today!</p>
+    </article>
+
+    <!-- Russian -->
+    <article id="russian-article" style="display: none;">
+        <h1>Добро пожаловать в Open-Meteo: ваш комплексный портал метеоданных</h1>
+        <p>В современном мире, где решения принимаются на основе данных, доступ к точным и своевременным метеоданным
+            является крайне важным. Он играет ключевую роль в различных отраслях, включая сельское хозяйство,
+            энергетику,
+            туризм и организацию мероприятий. Open-Meteo, мощный API метеоданных, разработан для предоставления
+            метеоданных
+            в реальном времени со всего мира, служа вашим шлюзом к метеоданным.</p>
+
+        <h2>Представляем Open-Meteo</h2>
+        <p>Open-Meteo - это динамичный API метеоданных, открывающий доступ к огромному объему метеоданных. Он предлагает
+            прогнозы погоды в реальном времени, исторические метеоданные, а также климатические прогнозы. Разработанный
+            с
+            учетом простоты и удобства использования, это отличный выбор для разработчиков и бизнеса всех масштабов.</p>
+
+        <h2>Почему выбрать Open-Meteo?</h2>
+        <p>Open-Meteo выделяется своим всеохватывающим покрытием и точностью. Вот что делает его особенным:</p>
+        <ul>
+            <li><strong>Глобальное покрытие</strong>: Open-Meteo предоставляет метеоданные для мест по всему миру, от
+                крупных городов до удаленных сельских районов.</li>
+            <li><strong>Прогнозы в реальном времени</strong>: Получайте актуальные прогнозы погоды, включая температуру,
+                влажность, скорость ветра, осадки и многое другое.</li>
+            <li><strong>Исторические данные</strong>: Получайте доступ к историческим метеоданным для анализа тенденций
+                и
+                паттернов со временем.</li>
+            <li><strong>Климатические прогнозы</strong>: Для долгосрочного планирования Open-Meteo предлагает
+                климатические
+                прогнозы на основе различных климатических моделей.</li>
+        </ul>
+
+        <h2>Начало работы с Open-Meteo</h2>
+        <p>Начать работу с Open-Meteo легко. API использует принципы RESTful и возвращает данные в формате JSON, что
+            делает
+            его легким в интеграции в ваши приложения. Независимо от того, разрабатываете ли вы приложение о погоде,
+            планируете мероприятие или управляете сельскохозяйственными операциями, Open-Meteo предоставляет
+            метеоданные,
+            необходимые для принятия обоснованных решений.</p>
+
+        <h2>Заключение</h2>
+        <p>В мире, где погодные условия значительно влияют на нашу повседневную жизнь и бизнес, доступ к надежным
+            метеоданным важнее, чем когда-либо. Open-Meteo, с его всеохватывающим покрытием и простым в использовании
+            API,
+            является отличным инструментом для всех, кто нуждается в точной и своевременной погодной информации.
+            Воспользуйтесь сегодня силой метеоданных с Open-Meteo!</p>
+    </article>
+
+    <!-- Hebrew -->
+    <article id="hebrew-article" style="display: none;">
+        <h1>ברוכים הבאים ל- Open-Meteo: הפורטל שלך לנתוני מזג אוויר מקיפים</h1>
+        <p>בעולם המודרני, בו החלטות מבוססות נתונים הן הכלל, גישה לנתוני מזג אוויר מדויקים ובזמן היא חיונית. היא משמשת
+            תפקיד מרכזי במגוון תעשיות, כולל חקלאות, אנרגיה, תיירות ותכנון אירועים. Open-Meteo, ממשק תכנותי למזג אוויר
+            חזק, מיועד לספק נתוני מזג אוויר בזמן אמת מרחבי העולם, שהוא השער שלך לנתוני מזג אוויר.</p>
+        <h2>היכרות עם Open-Meteo</h2>
+        <p>Open-Meteo הוא ממשק תכנותי דינמי של מזג אוויר המפתח רחב מידע אזורי. הוא מציע תחזיות מזג אוויר בזמן אמת, נתוני
+            מזג אוויר היסטוריים, וגם תחזיות אקלים. בעל עיצוב פשוט ונוח לשימוש, Open-Meteo הוא בחירה מצוינת למפתחים
+            ועסקים בכל גודלם.</p>
+        <h2>למה לבחור ב- Open-Meteo?</h2>
+        <p>Open-Meteo דוגל בכיסויו המקיף ובדיוקו. הנה מה שהופך אותו למיוחד:</p>
+        <ul>
+            <li><strong>כיסוי גלובלי</strong>: Open-Meteo מספק מידע על מזג האוויר עבור מיקומים בכל רחבי העולם, מערים
+                גדולות ועד אזורים רחוקים ורצופים.</li>
+            <li><strong>תחזיות בזמן אמת</strong>: קבלו תחזיות מזג אוויר בזמן אמת, כולל טמפרטורה, לחות, מהירות רוח, ירי
+                ועוד.</li>
+            <li><strong>נתונים היסטוריים</strong>: גשו לנתוני מזג אוויר היסטוריים כדי לנתח מגמות ותבניות זמן רב.</li>
+            <li><strong>תחזיות אקלים</strong>: לתכנון לטווח הארוך, Open-Meteo מציע תחזיות אקלים המבוססות על מודלים שונים
+                של אקלים.</li>
+        </ul>
+        <h2>התחלה עם Open-Meteo</h2>
+        <p>התחלה עם Open-Meteo היא פשוטה. ה-API משתמש בעקרונות RESTful ומחזיר נתונים בפורמט JSON, מה שהופך את השילוב שלו
+            לקל ביותר ביישומים שלך. בין אם אתם מפתחים אפליקציית מזג אוויר, מתכננים אירוע, או מנהלים את פעולות החקלאות
+            שלכם, Open-Meteo מספק את נתוני המזג אוויר שאתם צריכים כדי לקבל החלטות מושכלות.</p>
+        <h2>מסקנה</h2>
+        <p>בעולם בו תנאי המזג אוויר משפיעים משמעותית על חיי היום יום שלנו ועל העסקים שלנו, גישה לנתוני מזג אוויר אמינים
+            היא יותר חשובה מתמיד. Open-Meteo, עם הכיסוי המקיף שלו וה-API הידידותי למשתמש, הוא כלי מצוין לכל מי שזקוק
+            למידע מדוייק ובזמן אמת על מזג האוויר. נצלו את עוצמת נתוני המזג אוויר עם Open-Meteo היום!</p>
+
+    </article>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Open-Meteo Website</p>
+        <ul>
+            <li><a href="#" id="privacyPolicyLink">Privacy Policy</a></li>
+            <li><a href="#" onclick="alert('Contact me by yrenamm@gmail.com')">Contact me</a></li>
+        </ul>
+    </footer>
+    
+    <!-- Privacy Policy iFrame -->
+    <iframe id="policy-frame"></iframe>
+
+    <!-- Close Policy button -->
+    <button id="closeButton" style="display: none;">Close Policy</button>
+
+    <!-- Scripts -->
+    <script>
+
+        function showEnglishArticle() {
+            document.getElementById("russian-article").style.display = "none";
+            document.getElementById("hebrew-article").style.display = "none";
+            document.getElementById("english-article").style.display = "block";
+        }
+
+        function showRussianArticle() {
+            document.getElementById("english-article").style.display = "none";
+            document.getElementById("hebrew-article").style.display = "none";
+            document.getElementById("russian-article").style.display = "block";
+        }
+
+        function showHebrewArticle() {
+            document.getElementById("english-article").style.display = "none";
+            document.getElementById("russian-article").style.display = "none";
+            document.getElementById("hebrew-article").style.display = "block";
+        }
+
+        var frame = document.getElementById("policy-frame");
+        var link = document.getElementById("privacyPolicyLink");
+        var button = document.getElementById("closeButton");
+
+        // iFrame behaior 
+        link.onclick = function() {
+            frame.style.display = "block";
+            frame.contentWindow.document.write(
+                "<p>This project was created as an assignment for Code the Dream and is not intended for commercial use.</p>"
+            );
+            button.style.display = "block"
+        }
+
+        // Close Privacy Button behavior
+        button.onclick = function() {
+            frame.style.display = "none";
+            button.style.display = "none";
+        }
+
+    </script>
+
+</body>
+
+</html>
